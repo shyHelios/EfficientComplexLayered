@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "coffeetable",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/dist/mitsuba.exe",
+            "args": [
+                "${workspaceFolder}/scenes/coffeetable/scene.xml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal"
+        }
+    ]
+}

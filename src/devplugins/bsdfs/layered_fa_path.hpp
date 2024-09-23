@@ -805,11 +805,11 @@ Path(BSDFSamplingRecord &bRec_, const int &max_bounces_ = 100) : bRec(bRec_), ma
 // -- all changes should go in this version first then copy paste
 // -- USE ifdef/ifndef SAMPLEDIRECTION to code the portions relevant to one or the other
 bool generatePath(const int &nb_layers, const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
-		const MicrofacetDistribution::EType &m_type,
-		const Spectrum *m_etas, const Spectrum *m_kappas, const Float *m_alphasU, const Float *m_alphasV,
-		const Spectrum *m_reflectances, const Vector *m_normals,
-		const Spectrum *m_sigmas, const Spectrum *m_sigmaa,
-		const ETransportMode mode = ERadiance)
+                  const MicrofacetDistribution::EType &m_type,
+                  std::vector<Spectrum> &m_etas, std::vector<Spectrum> &m_kappas,
+                  std::vector<Float> &m_alphasU, std::vector<Float> &m_alphasV, std::vector<Spectrum> &m_reflectances,
+                  std::vector<Vector> &m_normals, std::vector<Spectrum> &m_sigmas, std::vector<Spectrum> &m_sigmaa,
+                  const ETransportMode mode = ERadiance)
 {
 	if (Frame::cosTheta(bRec.wi) < 0 ||
 		((bRec.component != -1 && bRec.component != 0) ||
@@ -1112,17 +1112,16 @@ Spectrum getPathSample(Vector &wo) const
 //	we ONLY care for path throughput e (sampling weight) and outgoing direction wo
 //	no need to store path information in m_path
 #define SAMPLEDIRECTION
-bool sampleDirection(Spectrum &e_, Vector &wo_, const int &nb_layers, 
-		const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
-		const MicrofacetDistribution::EType &m_type,
-		const Spectrum *m_etas, const Spectrum *m_kappas, const Float *m_alphasU, const Float *m_alphasV,
-		const Spectrum *m_reflectances, const Vector *m_normals,
-		const Spectrum *m_sigmas, const Spectrum *m_sigmaa,
-		const ETransportMode mode = ERadiance)
-{
-	if (Frame::cosTheta(bRec.wi) < 0 ||
-		((bRec.component != -1 && bRec.component != 0) ||
-		!(bRec.typeMask & BSDF::EGlossyReflection)))
+    bool sampleDirection(Spectrum &e_, Vector &wo_, const int &nb_layers,
+                         const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
+                         const MicrofacetDistribution::EType &m_type,
+                         std::vector<Spectrum> &m_etas, std::vector<Spectrum> &m_kappas,
+                         std::vector<Float> &m_alphasU, std::vector<Float> &m_alphasV, std::vector<Spectrum> &m_reflectances,
+                         std::vector<Vector> &m_normals, std::vector<Spectrum> &m_sigmas, std::vector<Spectrum> &m_sigmaa, const ETransportMode mode = ERadiance)
+    {
+        if (Frame::cosTheta(bRec.wi) < 0 ||
+            ((bRec.component != -1 && bRec.component != 0) ||
+             !(bRec.typeMask & BSDF::EGlossyReflection)))
 			return false;
 
 	Vector3 wi   = bRec.wi;
@@ -1410,11 +1409,11 @@ bool sampleDirection(Spectrum &e_, Vector &wo_, const int &nb_layers,
 //	the connection is performed in the next layer
 //#define DEBUGEVAL
 Spectrum EvalPath(const Path &shortpath, const int &nb_layers,
-		const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
-		const MicrofacetDistribution::EType &m_type,
-		const Spectrum *m_etas, const Spectrum *m_kappas, const Float *m_alphasU, const Float *m_alphasV,
-		const Spectrum *m_reflectances, const Vector *m_normals,
-		const Spectrum *m_sigmas, const Spectrum *m_sigmaa) 
+                  const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
+                  const MicrofacetDistribution::EType &m_type,
+                  std::vector<Spectrum> &m_etas, std::vector<Spectrum> &m_kappas,
+                  std::vector<Float> &m_alphasU, std::vector<Float> &m_alphasV, std::vector<Spectrum> &m_reflectances,
+                  std::vector<Vector> &m_normals, std::vector<Spectrum> &m_sigmas, std::vector<Spectrum> &m_sigmaa)
 {
 	/*enum EType {
 		EInterface = 0,
@@ -2065,11 +2064,11 @@ Spectrum EvalPath(const Path &shortpath, const int &nb_layers,
 }
 
 Float EvalPDFFull(const Path &shortpath, const int &nb_layers,
-		const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
-		const MicrofacetDistribution::EType &m_type,
-		const Spectrum *m_etas, const Spectrum *m_kappas, const Float *m_alphasU, const Float *m_alphasV,
-		const Spectrum *m_reflectances, const Vector *m_normals,
-		const Spectrum *m_sigmas, const Spectrum *m_sigmaa) const
+                  const std::vector<Float> &m_depths, const std::vector<Float> &m_gs,
+                  const MicrofacetDistribution::EType &m_type,
+                  std::vector<Spectrum> &m_etas, std::vector<Spectrum> &m_kappas,
+                  std::vector<Float> &m_alphasU, std::vector<Float> &m_alphasV, std::vector<Spectrum> &m_reflectances,
+                  std::vector<Vector> &m_normals, std::vector<Spectrum> &m_sigmas, std::vector<Spectrum> &m_sigmaa) const
 {
 	/*enum EType {
 		EInterface = 0,

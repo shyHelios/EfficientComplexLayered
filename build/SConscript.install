@@ -83,8 +83,8 @@ if sys.platform == 'win32':
         install(distDir, ['Iex.dll', 'Half.dll','IlmThread.dll', 'Imath.dll','IlmImf.dll','zlib1.dll',
                 'libpng16.dll', 'jpeg.dll', 'xerces-c_3_1.dll', 'glew32mx.dll', 'libfftw3-3.dll'],
                 prefix=dllprefix)
-        for boostlib in ['python27', 'python36', 'python37', 'system', 'filesystem', 'chrono', 'thread']:
-                install(distDir, ['boost_%s-%s-mt-x64-1_69.dll' % (boostlib, compilerType)], dllprefix)
+        for boostlib in ['system', 'filesystem', 'chrono', 'thread']:
+                install(distDir, ['boost_%s-%s-mt-1_64.dll' % (boostlib, compilerType)], dllprefix)
 
         installTargets += env.Install(distDir, '#data/windows/README.txt')
 
