@@ -4,9 +4,9 @@
             "name": "coffeetable",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/dist/mitsuba.exe",
+            "program": "${workspaceFolder}/dist/release/mitsuba.exe",
             "args": [
-                "${workspaceFolder}/scenes/coffeetable/scene.xml"
+                "${workspaceFolder}/coffeetable/scene.xml"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.6.0">
+
+<!-- COFFEE MACHINE -->
+	<bsdf type="twosided" id="Plastic_Orange" >
+		<bsdf type="multilayered_guo2018">
+			<boolean name="bidir" value="true"/>
+		        <string name="pdf" value="bidirStochTRT"/>
+			<integer name="stochPdfDepth" value="2"/>
+			<integer name="pdfRepetitive" value="1"/>
+			<float name="diffusePdf" value="0.1"/>
+			<float name="maxSurvivalProb" value="1"/>
+			<integer name="nbLayers" value="2"/>
+			
+			<bsdf type="roughdielectric" name="surface_0">
+				<float name="extIOR" value="1.0" />
+				<float name="intIOR" value="1.5" />
+				<float name="alpha" value="0.001"/>
+				<string name="distribution" value="beckmann"/>
+			</bsdf>
+		
+			<!--spectrum name="sigmaT_0" value="0.06 0.08 0.1"/>
+			<spectrum name="albedo_0" value="0.833 0.625 0.5"/-->
+			<!--spectrum name="sigmaT_0" value="1.1 1.0 1.0"/>
+			<spectrum name="albedo_0" value="0.90909 0.378676 0.0134734"/-->
+			<spectrum name="sigmaT_0" value="0.06 0.08 1.0"/>
+			<spectrum name="albedo_0" value="0.833 0.625 0.0134734"/>
+			<phase type="hg" name="phase_0">
+				<float name="g" value="0.5"/>
+			</phase>
+		
+			<bsdf type="diffuse" name="surface_1">	
+				<!--spectrum name="reflectance" value="1, 0.378676, 0.0134734"/-->
+				<!--spectrum name="reflectance" value="1, 0.978676, 0.0134734"/-->
+				<spectrum name="reflectance" value="1, 0.378676, 0.0134734"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<bsdf type="twosided" id="Plastic_Black" >
+		<bsdf type="roughplastic" >
+			<float name="alpha" value="0.1" />
+			<string name="distribution" value="ggx" />
+			<float name="intIOR" value="1.5" />
+			<float name="extIOR" value="1" />
+			<boolean name="nonlinear" value="true" />
+			<rgb name="diffuseReflectance" value="0.00631, 0.00631, 0.00631"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="dielectric" id="Glass" >
+		<float name="intIOR" value="1.5" />
+		<float name="extIOR" value="1" />
+	</bsdf>
+	<bsdf type="twosided" id="Metal" >
+		<bsdf type="conductor" >
+			<string name="material" value="none" />
+		</bsdf>
+	</bsdf>
+<!-- COFFEE MUG -->	
+	<bsdf type="multilayered_guo2018" id="CoffeeMug1">
+		<boolean name="bidir" value="true"/>
+	        <string name="pdf" value="bidirStochTRT"/>
+		<integer name="stochPdfDepth" value="4"/>
+		<integer name="pdfRepetitive" value="1"/>
+		<float name="diffusePdf" value="0.1"/>
+		<float name="maxSurvivalProb" value="1"/>
+		<integer name="nbLayers" value="3"/>
+			
+		<bsdf type="roughdielectric" name="surface_0">
+			<float name="extIOR" value="1.0" />
+			<float name="intIOR" value="1.5" />
+			<float name="alpha" value="0.001"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf>
+		
+		<spectrum name="sigmaT_0" value="0.2, 0.2, 0.2"/>
+		<spectrum name="albedo_0" value="0.5, 0.5, 0.5"/>
+		<phase type="hg" name="phase_0">
+			<float name="g" value="0.8"/>
+		</phase>
+		
+		<bsdf type="roughdielectric" name="surface_1">
+			<float name="extIOR" value="1.5" />
+			<float name="intIOR" value="1.1" />
+			<float name="alpha" value="0.1"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf>
+
+		<texture name="sigmaT_tex_1" type="bitmap">
+			<float name="gamma" value="1.0"/>
+			<float name="uoffset" value="-0.36"/>
+			<float name="voffset" value="-0.20"/>
+			<float name="uscale" value="1.1"/>
+			<float name="vscale" value="1.1"/>
+			<string name="filename" value="textures/EG_Logo2SigmaA.jpg"/>
+			<boolean name="cache" value="true"/>
+			<string name="wrapMode" value="repeat"/>
+		</texture>
+		<spectrum name="albedo_1" value="0.0"/>
+		<phase type="hg" name="phase_1">
+			<float name="g" value="0.5"/>
+		</phase>
+		<bsdf type="diffuse" name="surface_2">	
+			<spectrum name="reflectance" value="1"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="multilayered_guo2018" id="CoffeeMug2">
+		<boolean name="bidir" value="true"/>
+	        <string name="pdf" value="bidirStochTRT"/>
+		<integer name="stochPdfDepth" value="5"/>
+		<integer name="pdfRepetitive" value="1"/>
+		<float name="diffusePdf" value="0.1"/>
+		<float name="maxSurvivalProb" value="1"/>
+		<integer name="nbLayers" value="4"/>
+			
+		<bsdf type="roughdielectric" name="surface_0">
+			<float name="extIOR" value="1.0" />
+			<float name="intIOR" value="1.5" />
+			<float name="alpha" value="0.001"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf>
+		
+		<texture name="sigmaT_tex_0" type="bitmap">
+			<float name="gamma" value="1.0"/>
+			<float name="uoffset" value="-0.17"/>
+			<float name="voffset" value="-0.1"/>
+			<float name="uscale" value="1.05"/>
+			<float name="vscale" value="0.95"/>
+			<string name="filename" value="textures/EG_LogoSigmaA.jpg"/>
+			<boolean name="cache" value="true"/>
+			<string name="wrapMode" value="repeat"/>
+		</texture>
+		<spectrum name="albedo_0" value="0.0"/>
+		<phase type="hg" name="phase_0">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="roughdielectric" name="surface_1">
+			<float name="extIOR" value="1.5" />
+			<float name="intIOR" value="1.1" />
+			<float name="alpha" value="0.1"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf>
+		
+		<spectrum name="sigmaT_1" value="0.1, 0.1, 0.1"/>
+		<spectrum name="albedo_1" value="0.0"/>
+		<phase type="hg" name="phase_1">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="roughdielectric" name="surface_2">
+			<float name="extIOR" value="1.1" />
+			<float name="intIOR" value="1.5" />
+			<float name="alpha" value="0.1"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf>
+		<!--bsdf type="diffuse" name="surface_2">	
+			<spectrum name="reflectance" value="1"/>
+		</bsdf-->
+		<!--bsdf type="roughconductor" name="surface_2">
+			<string name="material" value="Al"/>
+		        <float name="alpha" value="0.1"/>
+			<float name="extEta" value="1.1"/>
+			<string name="distribution" value="beckmann"/>
+		</bsdf-->
+		
+		<spectrum name="sigmaT_2" value="0.1, 0.1, 0.1"/>
+		<spectrum name="albedo_2" value="0.0"/>
+		<phase type="hg" name="phase_2">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="diffuse" name="surface_3">	
+			<spectrum name="reflectance" value="1"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="multilayered_guo2018" id="CoffeeMug3">
+		<boolean name="bidir" value="true"/>
+	        <string name="pdf" value="bidirStochTRT"/>
+		<integer name="stochPdfDepth" value="4"/>
+		<integer name="pdfRepetitive" value="1"/>
+		<float name="diffusePdf" value="0.1"/>
+		<float name="maxSurvivalProb" value="1"/>
+		<integer name="nbLayers" value="3"/>
+			
+		<bsdf type="roughdielectric" name="surface_0">
+			<float name="extIOR" value="1.0" />
+			<float name="intIOR" value="1.5" />
+			<float name="alpha" value="0.001"/>
+			<string name="distribution" value="ggx"/>
+		</bsdf>
+		
+		<spectrum name="sigmaT_0" value="0.45, 1.1, 1.1"/>
+		<spectrum name="albedo_0" value="0.22222, 0.09091, 0.09091"/>
+		<phase type="hg" name="phase_0">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="roughdielectric" name="surface_1">
+			<float name="extIOR" value="1.5" />
+			<float name="intIOR" value="1.35" />
+			<float name="alpha" value="0.05"/>
+			<string name="distribution" value="ggx"/>
+		</bsdf>
+
+		<spectrum name="sigmaT_1" value="0.45, 1.1, 1.1"/>
+		<spectrum name="albedo_1" value="0.22222, 0.09091, 0.09091"/>
+		<phase type="hg" name="phase_1">
+			<float name="g" value="0.5"/>
+		</phase>
+
+		<bsdf type="roughconductor" name="surface_2">
+			<string name="distribution" value="ggx"/>
+			<string name="material" value="Al"/>
+			<float name="alpha" value="0.05"/>
+		</bsdf>
+		<texture name="normal_tex_2" type="bitmap">
+			<string name="wrapMode" value="repeat"/>
+			<string name="filename" value="normalmaps/brushed09_nrm.jpg"/>
+			<boolean name="cache" value="false"/>
+			<string name="filterType" value="nearest"/>
+			<float name="gamma" value="1.0"/>
+		</texture>
+	</bsdf>
+	<bsdf type="multilayered_guo2018" id="CoffeeMug3vis">
+		<boolean name="bidir" value="true"/>
+	        <string name="pdf" value="bidirStochTRT"/>
+		<integer name="stochPdfDepth" value="4"/>
+		<integer name="pdfRepetitive" value="1"/>
+		<float name="diffusePdf" value="0.1"/>
+		<float name="maxSurvivalProb" value="1"/>
+		<integer name="nbLayers" value="3"/>
+			
+		<bsdf type="roughdielectric" name="surface_0">
+			<float name="extIOR" value="1.0" />
+			<float name="intIOR" value="1.5" />
+			<float name="alpha" value="0.05"/>
+			<string name="distribution" value="ggx"/>
+		</bsdf>
+		
+		<spectrum name="sigmaT_0" value="0.45, 1.1, 1.1"/>
+		<spectrum name="albedo_0" value="0.22222, 0.09091, 0.09091"/>
+		<phase type="hg" name="phase_0">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="roughdielectric" name="surface_1">
+			<float name="extIOR" value="1.5" />
+			<float name="intIOR" value="1.35" />
+			<float name="alpha" value="0.05"/>
+			<string name="distribution" value="ggx"/>
+		</bsdf>
+
+		<spectrum name="sigmaT_1" value="0.45, 1.1, 1.1"/>
+		<spectrum name="albedo_1" value="0.22222, 0.09091, 0.09091"/>
+		<phase type="hg" name="phase_1">
+			<float name="g" value="0.5"/>
+		</phase>
+
+		<bsdf type="roughconductor" name="surface_2">
+			<string name="distribution" value="ggx"/>
+			<string name="material" value="Al"/>
+			<float name="alpha" value="0.05"/>
+		</bsdf>
+		<texture name="normal_tex_2" type="bitmap">
+			<string name="wrapMode" value="repeat"/>
+			<string name="filename" value="normalmaps/brushed09_nrm.jpg"/>
+			<boolean name="cache" value="false"/>
+			<string name="filterType" value="nearest"/>
+			<float name="gamma" value="1.0"/>
+		</texture>
+	</bsdf>
+<!-- TEAPOT -->
+	<bsdf type="multilayered_guo2018" id="TeapotMetal">
+		<boolean name="bidir" value="true"/>
+	        <string name="pdf" value="bidirStochTRT"/>
+		<integer name="stochPdfDepth" value="2"/>
+		<integer name="pdfRepetitive" value="1"/>
+		<float name="diffusePdf" value="0.1"/>
+		<float name="maxSurvivalProb" value="1"/>
+		<integer name="nbLayers" value="2"/>
+			
+		<bsdf type="roughdielectric" name="surface_0">
+			<string name="distribution" value="beckmann"/>
+			<float name="extIOR" value="1.0" />
+			<float name="intIOR" value="1.5"/>
+			<float name="alpha" value="0.001"/>
+		</bsdf>
+		<texture name="normal_tex_0" type="bitmap">
+			<string name="wrapMode" value="repeat"/>
+			<string name="filename" value="normalmaps/scratches04_nrm.jpg"/>
+			<boolean name="cache" value="false"/>
+			<string name="filterType" value="nearest"/>
+			<float name="gamma" value="1.0"/>
+			<float name="uscale" value="4.0"/>
+			<float name="vscale" value="4.0"/>
+		</texture>
+
+		<!--spectrum name="sigmaT_0" value="2.0, 1.2, 0.5"/-->
+		<spectrum name="sigmaT_0" value="0.4, 0.4, 0.4"/>
+		<spectrum name="albedo_0" value="0.0, 0.0, 0.0"/>
+		<phase type="hg" name="phase_0">
+			<float name="g" value="0.5"/>
+		</phase>
+		
+		<bsdf type="roughconductor" name="surface_1">
+			<string name="distribution" value="beckmann"/>
+			<string name="material" value="Al"/>
+			<float name="alpha" value="0.025"/>
+			<spectrum name="specularReflectance" value="0.8, 0.7, 0.8"/>
+		</bsdf>
+		<texture name="normal_tex_1" type="bitmap">
+			<string name="wrapMode" value="repeat"/>
+			<string name="filename" value="normalmaps/isotropic-mitsuba.exr"/>
+			<boolean name="cache" value="false"/>
+			<string name="filterType" value="nearest"/>
+			<float name="gamma" value="1.0"/>
+			<float name="uscale" value="3.0"/>
+			<float name="vscale" value="3.0"/>
+		</texture>
+	</bsdf>
+	<bsdf id="TeapotPlastic" type="roughplastic">
+		<string name="distribution" value="beckmann"/>
+		<float name="alpha" value="0.1"/>
+		<spectrum name="diffuseReflectance" value="0.0, 0.0, 0.0"/>
+	</bsdf>
+	<bsdf id="TeapotPlastic2" type="roughplastic">
+		<string name="distribution" value="beckmann"/>
+		<float name="alpha" value="0.1"/>
+		<spectrum name="diffuseReflectance" value="0.8, 0.8, 0.8"/>
+	</bsdf>
+<!-- DRAWER -->
+	<bsdf id="WoodFurniture" type="twosided">
+		<bsdf type="multilayered_guo2018">
+			<boolean name="bidir" value="true"/>
+		        <string name="pdf" value="bidirStochTRT"/>
+			<integer name="stochPdfDepth" value="2"/>
+			<integer name="pdfRepetitive" value="1"/>
+			<float name="diffusePdf" value="0.1"/>
+			<float name="maxSurvivalProb" value="1"/>
+			<integer name="nbLayers" value="2"/>
+			
+			<bsdf type="roughdielectric" name="surface_0">
+				<string name="distribution" value="beckmann"/>
+				<float name="extIOR" value="1.0" />
+				<float name="intIOR" value="1.5"/>
+				<float name="alpha" value="0.15"/>
+			</bsdf>
+	
+			<spectrum name="sigmaT_0" value="0.1, 0.1, 0.1"/>
+			<spectrum name="albedo_0" value="0.5, 0.5, 0.5"/>
+			<phase type="hg" name="phase_0">
+				<float name="g" value="0.5"/>
+			</phase>
+			
+			<bsdf type="diffuse" name="surface_1">
+				<texture name="reflectance" type="bitmap">
+					<string name="filename" value="textures/panel-wood-3.jpg"/>
+					<string name="filterType" value="trilinear"/>
+				</texture>
+			</bsdf>
+			<texture name="normal_tex_1" type="bitmap">
+				<string name="wrapMode" value="repeat"/>
+				<string name="filename" value="textures/panel-wood-3-normal.png"/>
+				<boolean name="cache" value="false"/>
+				<string name="filterType" value="nearest"/>
+				<float name="gamma" value="1.0"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<bsdf id="Aluminium" type="twosided">
+		<bsdf type="roughconductor">
+			<float name="alpha" value="0.2"/>
+			<string name="distribution" value="ggx"/>
+			<float name="extEta" value="1"/>
+			<rgb name="specularReflectance" value="1, 1, 1"/>
+			<rgb name="eta" value="1.65746, 0.880369, 0.521229"/>
+			<rgb name="k" value="9.22387, 6.26952, 4.837"/>
+		</bsdf>
+	</bsdf>
+	<bsdf id="StainlessSmooth" type="twosided">
+		<bsdf type="conductor">
+			<string name="material" value="none"/>
+		</bsdf>
+	</bsdf>
+</scene>

@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.6.0">
+	<default name="integrator" value="pathwsampler"/>
+	<default name="materials" value="ours"/>
+	<default name="spp" value="64"/>
+
+	<integrator type="$integrator">
+		<integer name="maxDepth" value="65"/>
+		<boolean name="strictNormals" value="true"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="focusDistance" value="0.782533"/>
+		<float name="fov" value="67.9847"/>
+		<string name="fovAxis" value="x"/>
+		<transform name="toWorld">
+
+			<lookat target="-2.191, 0.764515, 1.28707" origin="-1.20874, 0.952019, 1.28707" up="-0.187504, 0.982264, 0"/>
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="$spp"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<boolean name="banner" value="false"/>
+			<integer name="cropHeight" value="1063"/>
+			<integer name="cropOffsetX" value="864"/>
+			<integer name="cropOffsetY" value="157"/>
+			<integer name="cropWidth" value="573"/>
+			<integer name="height" value="1302"/>
+			<integer name="width" value="2314"/>
+
+			<rfilter type="tent"/>
+		</film>
+	</sensor>
+	<!-- LOAD MATERIALS -->
+
+	<include filename="materials-$materials.xml"/>
+	<!-- TEAPOT -->
+	<!-- -far/+near  -down/+up -right/+left -->
+
+	<shape type="obj">
+		<string name="filename" value="models/teapot.obj"/>
+		<transform name="toWorld">
+			<rotate x="1" angle="-90.0"/>
+			<rotate y="1" angle="95.0"/>
+			<rotate z="1" angle="0.0"/>
+			<scale x="0.04" y="0.04" z="0.04"/>
+			<translate x="-2.0" y="0.597" z="0.95"/>
+		</transform>
+
+		<ref name="Metal" id="TeapotMetalMatchBelcour"/>
+
+		<ref name="Plastic" id="TeapotPlastic"/>
+
+		<ref name="PlasticSwitch" id="TeapotPlastic2"/>
+	</shape>
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<rotate angle="90" x="1"/>
+			<!-- -far/+near  -down/+up -right/+left -->
+			<!--translate x="-2.25" y="-0.3915" z="2.22"/-->
+			<!-- original position -->
+			<translate x="-3.7" y="1.195" z="3.0"/>
+			<scale x="0.5" y="0.5" z="0.5"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0.4, 0.3, 0.2"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<!-- WINDOW LIGHT LEFT -->
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="0.53241 0 0 -1.47544 0 0.907794 1.78252e-008 1.18968 0 1.78252e-008 0.5 -1.26735 0 0 0 1"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+
+		<emitter type="area">
+			<rgb name="radiance" value="16.4648, 16.4648, 16.4648"/>
+		</emitter>
+	</shape>
+	<!-- WINDOW LIGHT RIGHT -->
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="0.53241 0 0 1.44379 0 0.907794 1.78252e-008 1.18968 0 1.78252e-008 0.5 -1.26735 0 0 0 1"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+
+		<emitter type="area">
+			<rgb name="radiance" value="16.4648, 16.4648, 16.4648"/>
+		</emitter>
+	</shape>
+	<!-- CURTAINS -->
+	<!--bsdf id="Curtains" type="mask">
+		<rgb name="opacity" value="0.531049, 0.531049, 0.531049"/>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="1, 1, 1"/>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+	<shape type="obj">
+		<string name="filename" value="models/Mesh057.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Curtains"/>
+	</shape>
+	<shape type="obj">
+		<string name="filename" value="models/Mesh004.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Curtains"/>
+	</shape-->
+	<!-- FLOOR -->
+
+	<bsdf type="twosided" id="WoodFloor">
+		<bsdf type="roughplastic">
+			<float name="alpha" value="0.15"/>
+			<string name="distribution" value="ggx"/>
+			<float name="intIOR" value="1.5"/>
+			<float name="extIOR" value="1"/>
+			<boolean name="nonlinear" value="true"/>
+
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="textures/wood4.jpg"/>
+				<string name="filterType" value="trilinear"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh060.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="WoodFloor"/>
+	</shape>
+	<!-- WALLS -->
+
+	<bsdf type="twosided" id="Walls">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.799999, 0.799999, 0.799999"/>
+		</bsdf>
+	</bsdf>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh013.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Walls"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh008.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Walls"/>
+	</shape>
+</scene>

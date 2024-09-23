@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.6.0" >
+
+<!-- translate -->
+<default name="coffeetx" value="-2.0"/> <!-- -far/+near -->
+<default name="coffeety" value="0.595"/> <!-- -down/+up -->
+<!--default name="coffeetz" value="1.9"/--> <!-- -right/+left -->
+<default name="coffeetz" value="1.93"/> <!-- -right/+left -->
+<!-- scale -->
+<default name="coffeesx" value="1.55"/>
+<default name="coffeesy" value="1.55"/>
+<default name="coffeesz" value="1.55"/>
+<!-- rotate -->
+<default name="coffeerx" value="0.0"/>
+<default name="coffeery" value="75.0"/>
+<default name="coffeerz" value="0.0"/>
+
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh013.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh008.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh010.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Glass" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh009.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh015.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Metal" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh012.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh016.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh017.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh018.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh019.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh007.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh006.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<!--shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh005.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<boolean name="faceNormals" value="true" />
+		<ref id="Plastic_Black" />
+	</shape-->
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh003.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh002.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Metal" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh001.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh011.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh000.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Orange" />
+	</shape>
+	<shape type="obj" >
+		<string name="filename" value="models/coffee/Mesh014.obj" />
+		<transform name="toWorld" >
+			<rotate x="1" angle="$coffeerx"/>
+			<rotate y="1" angle="$coffeery"/>
+			<rotate z="1" angle="$coffeerz"/>
+			<scale     x="$coffeesx" y="$coffeesy" z="$coffeesz"/>
+			<translate x="$coffeetx" y="$coffeety" z="$coffeetz"/>
+		</transform>
+		<ref id="Plastic_Black" />
+	</shape>
+</scene>

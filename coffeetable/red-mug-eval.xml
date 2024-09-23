@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.6.0">
+	<default name="integrator" value="directlightsampling"/>
+
+	<default name="materials" value="ours"/>
+
+	<default name="spp" value="32"/>
+
+	<integrator type="$integrator">
+		<integer name="maxDepth" value="65"/>
+		<boolean name="strictNormals" value="true"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="focusDistance" value="0.631976"/>
+		<float name="fov" value="12"/>
+		<string name="fovAxis" value="x"/>
+		<transform name="toWorld">
+
+			<lookat origin="0.0166308, 0.805314, 0.858069" up="0.0093668, 0.968393, 0.249253" target="0.101827, 0.556183, 1.82278"/>
+		</transform>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="$spp"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<boolean name="banner" value="false"/>
+			<integer name="height" value="810"/>
+			<integer name="width" value="720"/>
+
+			<rfilter type="tent"/>
+		</film>
+	</sensor>
+	<!-- LOAD MATERIALS -->
+
+	<include filename="materials-$materials.xml"/>
+	<!-- COFFEE MACHINE -->
+	<!-- COFFEE MUG -->
+	<!-- Back right mug -->
+
+	<shape type="obj">
+		<string name="filename" value="models/coffeemug.obj"/>
+		<transform name="toWorld">
+			<rotate angle="0.0" x="1"/>
+			<!--rotate y="1" angle="135.0"/-->
+			<!-- original rotation -->
+			<rotate angle="20.0" y="1"/>
+			<!-- messy rotation -->
+			<rotate angle="0.0" z="1"/>
+			<scale x="1.0" y="1.0" z="1.0"/>
+			<!-- -far/+near  -down/+up -right/+left -->
+			<!--translate x="-2.25" y="-0.3915" z="2.22"/-->
+			<!-- original position -->
+			<translate x="-0.45" y="-0.3915" z="0.95"/>
+			<!-- messy position -->
+		</transform>
+
+		<ref id="CoffeeMug3vis"/>
+	</shape>
+	<!-- WINDOW LIGHT LEFT -->
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="0.53241 0 0 -1.47544 0 0.907794 1.78252e-008 1.18968 0 1.78252e-008 0.5 -1.26735 0 0 0 1"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+
+		<emitter type="area">
+			<rgb name="radiance" value="32.4648, 32.4648, 32.4648"/>
+		</emitter>
+	</shape>
+	<!-- WINDOW LIGHT RIGHT -->
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<matrix value="0.53241 0 0 1.44379 0 0.907794 1.78252e-008 1.18968 0 1.78252e-008 0.5 -1.26735 0 0 0 1"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0, 0, 0"/>
+			</bsdf>
+		</bsdf>
+
+		<emitter type="area">
+			<rgb name="radiance" value="32.4648, 32.4648, 32.4648"/>
+		</emitter>
+	</shape>
+	<!-- DRAWER -->
+
+	<shape type="rectangle">
+		<transform name="toWorld">
+			<rotate angle="90" x="1"/>
+			<!-- -far/+near  -down/+up -right/+left -->
+			<!--translate x="-2.25" y="-0.3915" z="2.22"/-->
+			<!-- original position -->
+			<translate x="0.0" y="1.195" z="3.0"/>
+			<scale x="0.5" y="0.5" z="0.5"/>
+		</transform>
+
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0.4, 0.3, 0.2"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+	<!-- FLOOR -->
+
+	<bsdf type="twosided" id="WoodFloor">
+		<bsdf type="roughplastic">
+			<float name="alpha" value="0.15"/>
+			<string name="distribution" value="ggx"/>
+			<float name="intIOR" value="1.5"/>
+			<float name="extIOR" value="1"/>
+			<boolean name="nonlinear" value="true"/>
+
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="textures/wood4.jpg"/>
+				<string name="filterType" value="trilinear"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh060.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+		<boolean name="faceNormals" value="true"/>
+
+		<ref id="WoodFloor"/>
+	</shape>
+	<!-- WALLS -->
+
+	<bsdf type="twosided" id="Walls">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.799999, 0.799999, 0.799999"/>
+		</bsdf>
+	</bsdf>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh013.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Walls"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="models/Mesh008.obj"/>
+		<transform name="toWorld">
+			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+		</transform>
+
+		<ref id="Walls"/>
+	</shape>
+</scene>
